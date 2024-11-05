@@ -1,0 +1,47 @@
+<div class="fixture-card">
+    <div class="status {{fixture.status}}">
+        @if (fixture.status === "ongoing") {
+        <p>Q{{fixture.currentTime.quarter}} | {{fixture.currentTime.time}}</p>
+        } @else {
+        <p>{{fixture.status.toUpperCase()}}</p>
+        }
+    </div>
+
+    <!-- <div class="versus">
+        <div class="home-team">
+            <div class="team-text">
+                <p class="abbreviation">{{fixture.homeTeam.abbreviation}}</p>
+                <p class="name truncate">{{fixture.homeTeam.name.toUpperCase()}}</p>
+                <p class="record">{{fixture.homeTeam.record}}</p>
+            </div>
+            <div class="logo">
+                <img src={{fixture.homeTeam.logoUrl}} alt="home-team-logo">
+            </div>
+        </div>
+
+        @if (fixture.status == "upcoming") {
+        <div class="kickoff">
+            <p class="date">OCTOBER 13</p>
+            <p class="time">9:30PM</p>
+        </div>
+        } @else {
+        <app-fixture-results [fixture]="fixture" />
+        }
+
+        <div class="away-team">
+            <div class="logo">
+                <img src="https://i.imgur.com/XM1pl8M.png" alt="away-team-logo">
+            </div>
+            <div class="team-text">
+                <p class="abbreviation">{{fixture.awayTeam.abbreviation}}</p>
+                <p class="name truncate">{{fixture.awayTeam.name.toUpperCase()}}</p>
+                <p class="record">{{fixture.awayTeam.record}}</p>
+            </div>
+        </div>
+    </div> -->
+    <app-fixture-versus [fixture]="fixture" />
+
+    <div class="venue">
+        <p><strong>{{fixture.venue.stadium}},</strong> {{fixture.venue.city}}</p>
+    </div>
+</div>

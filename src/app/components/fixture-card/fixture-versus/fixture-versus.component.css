@@ -1,0 +1,88 @@
+
+
+.versus {
+    display: flex;
+    flex-direction: row;
+    gap: 11px;
+    width: 100%;
+    height: 94px;
+}
+
+.versus>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+/* versus kickoff */
+.versus .kickoff {
+    flex-direction: column;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 32px;
+    width: 250px;
+}
+
+/* versus teams */
+.home-team,
+.away-team {
+    flex-direction: row;
+    gap: 15px;
+}
+
+.home-team .logo,
+.away-team .logo {
+    flex: 1;
+    height: 100%;
+}
+
+.home-team .logo img,
+.away-team .logo img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.home-team .team-text,
+.away-team .team-text {
+    width: 48%;
+}
+
+.home-team .team-text {
+    text-align: right;
+}
+
+.away-team .team-text {
+    text-align: left;
+}
+
+.home-team .team-text .abbreviation,
+.away-team .team-text .abbreviation {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.home-team .team-text .name,
+.away-team .team-text .name {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.home-team .team-text .record,
+.away-team .team-text .record {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 6px;
+    margin-right: -6px;
+}
+
+
+/* venue styles */
+.venue {
+    font-size: 14px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

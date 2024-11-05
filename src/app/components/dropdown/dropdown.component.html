@@ -1,0 +1,14 @@
+<div class="dropdown-menu" (clickOutside)="isDropdownOpen = false">
+    <label>{{dropdownOptions.title}}</label>
+    <div class="selector" [ngStyle]="{'width.px': selectorWidth}">
+        <p class="value">{{dropdownOptions.selectedItem}}</p>
+        <span class="dropper {{gIcon}}" (click)="toggleDropdown()">keyboard_arrow_down</span>
+    </div>
+    <div class="dropdown" *ngIf="isDropdownOpen" [ngStyle]="{'width.px': selectorWidth - 8}">
+        @for (option of dropdownOptions.items; track option) {
+        <div class="option" (click)="selectItem(option)">
+            <p>{{option}}</p>
+        </div>
+        }
+    </div> 
+</div>

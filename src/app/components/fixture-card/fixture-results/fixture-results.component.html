@@ -1,0 +1,11 @@
+<div class="results" [ngStyle]="{'width.px': width}">
+    <p
+        class="home-score {{fixture.status === 'final' && fixture.result.winningTeam === 'away' && 'losingTeam'}}">
+        {{twoDigitScore(fixture.result.homeScore)}}
+    </p>
+    <p class="separator">&ndash;</p>
+    <p
+        class="away-score {{fixture.status === 'final' && fixture.result.winningTeam === 'home' && 'losingTeam'}}">
+        {{twoDigitScore(fixture.result.awayScore)}}
+    </p>
+</div>

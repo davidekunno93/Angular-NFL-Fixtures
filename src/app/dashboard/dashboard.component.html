@@ -1,0 +1,28 @@
+<header>
+    <div class="title">
+        <img src="https://i.imgur.com/dyKsPet.png" alt="">
+        <h1>Schedule and Results</h1>
+    </div>
+</header>
+
+<div class="subheader">
+    <div class="search-bar">
+        <input [(ngModel)]="searchQuery" (keyup)="updateFilteredFixtures()" type="text" class="search-bar-input"
+            placeholder="Search Teams...">
+    </div>
+    <app-dropdown [dropdownOptions]="filterOptions" [selectorWidth]="120" (click)="updateFilteredFixtures()" />
+    <app-dropdown [dropdownOptions]="gameWeekOptions" [selectorWidth]="80" (click)="updateFilteredFixtures()" />
+</div>
+
+<div class="fixtures-list">
+    @if (filteredFixtures.length == 0) {
+    <div class="no-fixtures">
+        <p>No fixtures found</p>
+    </div>
+    }
+    <div class="fixtures-grid">
+        @for (fixture of filteredFixtures; track fixture.id) {
+        <app-fixture-card [fixture]="fixture" />
+        }
+    </div>
+</div>

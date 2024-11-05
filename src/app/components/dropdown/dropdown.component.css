@@ -1,0 +1,90 @@
+.dropdown-menu {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 8px;
+    height: 40px;
+    position: relative;
+    /* overflow: hidden; */
+    border: 1px solid var(--gray-outline);
+
+
+    label {
+        height: 100%;
+        font-size: 14px;
+        color: white;
+        background-color: var(--gray-outline);
+        display: flex;
+        align-items: center;
+        padding: 0px 12px;
+        border-radius: 6px 0 0 6px;
+    }
+
+    .selector {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: white;
+        height: 100%;
+        width: 100px;
+        border-radius: 0 8px 8px 0;
+    }
+
+    .value {
+        color: black;
+        padding-left: 12px;
+        font-size: 14px;
+    }
+
+    .dropper {
+        cursor: pointer;
+        color: var(--gray-outline);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 4px;
+        /* outline: red solid 1px; */
+        margin: 0 0 0 auto;
+        transition-duration: 0.2s;
+    }
+
+    .dropper:hover {
+        color: black;
+        transform: translateY(2px);
+    }
+
+    .dropdown {
+        position: absolute;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        border: 1px solid var(--gray-outline);
+        border-radius: 8px;
+        padding: 4px;
+        top: 42px;
+        right: 0;
+        /* width: 92px; */
+        
+        /* visibility: hidden; */
+    }
+    .dropdown .option {
+        display: flex;
+        align-items: center;
+        padding: 8px 4px;
+        box-sizing: border-box;
+        width: 100%;
+        border-radius: 6px;
+        transition-duration: 0.2s;
+        cursor: pointer;
+    }
+    .dropdown .option:hover {
+        background-color: gainsboro;
+    }
+    .dropdown p {
+        color: black;
+        font-size: 14px;
+        padding-left: 4px;
+    }
+}

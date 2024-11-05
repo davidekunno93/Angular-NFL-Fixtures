@@ -1,0 +1,25 @@
+
+.results {
+    height: 100%;
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.home-score,
+.away-score {
+    font-size: 44px;
+    font-weight: 700;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home-score.losingTeam,
+.away-score.losingTeam {
+    color: #6F6F6F;
+}
+.separator {
+    font-size: 44px;
+    font-weight: 700;
+}

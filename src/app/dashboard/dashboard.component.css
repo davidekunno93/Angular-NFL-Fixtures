@@ -1,0 +1,124 @@
+/* header styles */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: 'Comfortaa', sans-serif;
+    height: 160px;
+    padding: 24px 0px;
+}
+.title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 36px;
+}
+.title img {
+    width: 80px;
+    object-fit: contain;
+}
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 18px 0px;
+}
+
+/* subheader styles */
+.subheader {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin: 24px 0px;
+    @media screen and (max-width: 1320px) {
+        justify-content: center;
+    }
+}
+
+.filter {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 8px;
+    height: 40px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gray-outline);
+
+
+    label {
+        height: 100%;
+        font-size: 14px;
+        color: white;
+        background-color: var(--gray-outline);
+        display: flex;
+        align-items: center;
+        padding: 0px 12px;
+    }
+    
+    .selector {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        background-color: white;
+        height: 100%;
+        width: 100px;
+    }
+
+    .value {
+        color: black;
+        padding-left: 12px;
+        font-size: 14px;
+    }
+
+    .dropper {
+        cursor: pointer;
+        color: var(--gray-outline);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 0 auto;
+        transition-duration: 0.2s;
+    }
+    .dropper:hover {
+        color: black;
+        transform: translateY(2px);
+    }
+}
+
+.dropdown {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid var(--gray-outline);
+    border-radius: 8px;
+    padding: 8px;
+    gap: 8px;
+    visibility: hidden;
+}
+
+
+
+/* fixture list styles */
+.fixtures-list {
+    width: 100%;
+}
+.fixtures-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 16px;
+    justify-items: center;
+    @media screen and (max-width: 1320px) {
+        grid-template-columns: 1fr;
+    }
+}
+.no-fixtures {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    padding-top: 24px;
+    width: 100%;
+    text-align: center;
+}

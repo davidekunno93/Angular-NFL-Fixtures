@@ -1,0 +1,32 @@
+<div class="versus">
+    <div class="home-team">
+        <div class="team-text">
+            <p class="abbreviation">{{fixture.homeTeam.abbreviation}}</p>
+            <p class="name truncate">{{fixture.homeTeam.nickname.toUpperCase()}}</p>
+            <p class="record">{{convertRecord(fixture.homeTeam.record.wins, fixture.homeTeam.record.losses, fixture.homeTeam.record.ties)}}</p>
+        </div>
+        <div class="logo">
+            <img src={{fixture.homeTeam.logoUrl}} alt="home-team-logo">
+        </div>
+    </div>
+
+    @if (fixture.status === "upcoming") {
+    <div class="kickoff">
+        <p class="date">{{fixture.kickoff.formattedDate.split(", ")[0]}}</p>
+        <p class="time">{{fixture.kickoff.time}}</p>
+    </div>
+    } @else {
+    <app-fixture-results [fixture]="fixture" />
+    }
+
+    <div class="away-team">
+        <div class="logo">
+            <img src={{fixture.awayTeam.logoUrl}} alt="away-team-logo">
+        </div>
+        <div class="team-text">
+            <p class="abbreviation">{{fixture.awayTeam.abbreviation}}</p>
+            <p class="name truncate">{{fixture.awayTeam.nickname.toUpperCase()}}</p>
+            <p class="record">{{convertRecord(fixture.awayTeam.record.wins, fixture.awayTeam.record.losses, fixture.awayTeam.record.ties)}}</p>
+        </div>
+    </div>
+</div>
