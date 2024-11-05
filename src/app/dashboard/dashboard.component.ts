@@ -87,6 +87,7 @@ export class DashboardComponent implements OnInit {
       Object.assign(this.fixturesData.seasonFixtures, { [gameWeekId]: fixtureWeek })
     }
     this.fixturesData.isLoaded = true;
+    this.fixturesData.numberOfGameWeeks = Object.keys(this.fixturesData.seasonFixtures).length;
     this.filteredFixtures = Object.values(this.fixturesData.seasonFixtures)[3];
   };
   apiHelper = {
@@ -177,7 +178,7 @@ export class DashboardComponent implements OnInit {
     numberOfGameWeeks: 5,
   };
   fixturesOptions = {
-    gameWeek: "4",
+    gameWeek: "game-week-4",
     status: "All",
     searchQuery: "",
   };
@@ -191,7 +192,7 @@ export class DashboardComponent implements OnInit {
   }
   gameWeekOptions = {
     title: "Game Week",
-    items: ["1", "2", "3", "4", "5"],
+    items: ["All", "1", "2", "3", "4", "5"],
     selectedItem: "4",
   }
   searchQuery = "";
@@ -200,14 +201,23 @@ export class DashboardComponent implements OnInit {
   // filtering functions
   filterFixtures(gameWeek: string, status: string, searchQuery: string) {
     // only run if gameWeek, status or searchQuery has changed
-    if (gameWeek !== `game-week-${this.fixturesOptions.gameWeek}` || status !== this.fixturesOptions.status || searchQuery !== this.fixturesOptions.searchQuery) {
+    if (gameWeek !== this.fixturesOptions.gameWeek || status !== this.fixturesOptions.status || searchQuery !== this.fixturesOptions.searchQuery) {
+      
       // update fixtures options (reference for updates in gameWeek, status or searchQuery)
-      this.fixturesOptions.gameWeek = gameWeek.split("-")[2];
+      this.fixturesOptions.gameWeek = gameWeek;
       this.fixturesOptions.status = status;
       this.fixturesOptions.searchQuery = searchQuery;
 
-      // select gameWeek and filter status
-      let filteredResults = this.fixturesData.seasonFixtures[gameWeek].filter(fixture => status === "All" ? true : fixture.status === this.convertStatusFormat(status));
+      // select gameWeek(s)
+      let filteredResults = [];
+      if (gameWeek === "All") {
+        filteredResults = this.fixturesData.seasonFixtures["game-week-1"].concat(this.fixturesData.seasonFixtures["game-week-2"], this.fixturesData.seasonFixtures["game-week-3"], this.fixturesData.seasonFixtures["game-week-4"], this.fixturesData.seasonFixtures["game-week-5"]);
+      } else {
+        filteredResults = this.fixturesData.seasonFixtures[gameWeek];
+      };
+
+      // filter status
+      filteredResults = filteredResults.filter(fixture => status === "All" ? true : fixture.status === this.convertStatusFormat(status));
 
       // filter search query (is search query in home/away team names)
       filteredResults = filteredResults.filter(function (fixture) {
@@ -221,7 +231,8 @@ export class DashboardComponent implements OnInit {
     };
   };
   updateFilteredFixtures() {
-    this.filterFixtures(`game-week-${this.gameWeekOptions.selectedItem}`, this.filterOptions.selectedItem, this.searchQuery);
+    let gameWeek = this.gameWeekOptions.selectedItem === "All" ? this.gameWeekOptions.selectedItem :`game-week-${this.gameWeekOptions.selectedItem}`;
+    this.filterFixtures(gameWeek, this.filterOptions.selectedItem, this.searchQuery);
   };
 
 
