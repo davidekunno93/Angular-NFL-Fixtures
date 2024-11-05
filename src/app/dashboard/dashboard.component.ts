@@ -1,8 +1,7 @@
-import { Component, inject, Input, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FixtureCardComponent } from "../components/fixture-card/fixture-card.component";
 import { Fixture, FixturesData, Status } from '../models/Fixture';
 import { DropdownComponent } from '../components/dropdown/dropdown.component';
-import { FunctionsService } from '../services/functions.service';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { lastValueFrom } from 'rxjs';

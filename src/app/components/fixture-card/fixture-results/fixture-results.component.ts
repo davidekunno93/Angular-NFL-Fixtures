@@ -1,6 +1,6 @@
 import { OngoingFixture, ResultedFixture } from './../../../models/Fixture';
 import { Component, Input } from '@angular/core';
-import { Fixture, Result } from '../../../models/Fixture';
+import { Fixture } from '../../../models/Fixture';
 import { CommonModule } from '@angular/common';
 
 @Component({
